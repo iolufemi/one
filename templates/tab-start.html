@@ -1,0 +1,41 @@
+<ion-view title="Get Started">
+<ion-nav-buttons side="right">
+      <button class="button button-dark" ui-sref="signin">
+        Sign In <i class="icon ion-chevron-right"></i>
+      </button>
+    </ion-nav-buttons>
+  <ion-content class="has-header padding">
+    <div class="list calculator">
+  
+  <label class="item item-input">
+  <span class="input-label"><i class="icon ion-arrow-right-b"></i>What is your net monthly pay?</span>
+  <br />
+    <input ng-change="getloan()" type="number" ng-model="pay" min="19000" step="1000" name="pay"  class="input3" required="yes" />
+  </label>
+  <label class="item item-input">
+  <span class="input-label"><i class="icon ion-arrow-right-b"></i>How much credit do you want?</span>
+  <br />
+    <input ng-change="onchange()" type="number" ng-model="principal"  min="40000" step="10000" max="500000"  name="credit" class="input1" />
+  </label>
+  <label class="item item-input">
+  <span class="input-label"><i class="icon ion-arrow-right-b"></i>Other Loan Repayments (Per Month)</span>
+  <br />
+    <input ng-change="onchange()" type="number" ng-model="otherrepayments" min="0" step="1000"  name="otherrepayments" class="input4" />
+  </label>
+  <label class="item item-input">
+    <span class="input-label"><i class="icon ion-arrow-right-b"></i>How long do you want it for?</span>
+    <br />
+    <!--<input type="number" value="3" min="3" step="3" max="12"  name="duration" class="input2" />-->
+    <select ng-change="onchange()" name="duration" class="input2" ng-model="defaultduration" ng-options="tenure for tenure in durationlist"></select>
+  </label>
+  <p>
+  <em class="assertive">{{errormessage}}</em></p>
+  <p><em>With your salary<!--(<span class="positive">{{pay}}</span>)-->, we suggest a loan of <span class="positive">{{suprincipal}}</span> for <span class="positive">{{sudefaultduration}}</span> months</em></p>
+<p>
+    <em>Total amount to be repaid for this loan is <span class="positive">{{repayment}}</span>. Your monthly payment will be <span class="positive">{{monthlyrepayment}}</span> per month (for <span class="positive">{{defaultduration}}</span> months)</em></p>
+    <button ng-click="show()" class="button button-block button-calm">Apply Now <i class="icon ion-android-send"></i></button>
+</div>
+
+    
+  </ion-content>
+</ion-view>
