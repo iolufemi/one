@@ -12,9 +12,19 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
+    
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    
+    <!-- Firebase -->
+    <script src="lib/firebase/firebase.js"></script>
+    
+    <!-- AngularFire -->
+    <script src="lib/angularFire/angularfire.js"></script>
 
+    <!-- Firebase Simple Login -->
+    <script src="lib/firebase-simple-login/firebase-simple-login.js"></script>
+    
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -22,14 +32,27 @@
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
+    <style>
+    .sloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('img/logo.png') no-repeat center;
+    background-color: #fff;
+    z-index: 99;
+    top: 0px;
+}
+    </style>
+    
   </head>
   <body ng-app="starter" animation="slide-left-right">
+
     <!-- 
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-stable nav-title-slide">
-      <ion-nav-back-button class="button-icon icon  ion-arrow-back">
-        Back
+    <ion-nav-bar class="bar-energized nav-title-slide">
+      <ion-nav-back-button class="button-icon button-clear">
+        <i class="icon ion-android-arrow-back"></i>
       </ion-nav-back-button>
     </ion-nav-bar>
     <!-- 
@@ -38,20 +61,8 @@
       have templates inline in this html file if you'd like).
     -->
     <ion-nav-view></ion-nav-view>
+    <!--<div ng-hide="start" class="sloader"></div>-->
     
-    <script>
-    function addCommas(nStr)
-    {
-    	nStr += '';
-    	x = nStr.split('.');
-    	x1 = x[0];
-    	x2 = x.length > 1 ? '.' + x[1] : '';
-    	var rgx = /(\d+)(\d{3})/;
-    	while (rgx.test(x1)) {
-    		x1 = x1.replace(rgx, '$1' + ',' + '$2');
-    	}
-    	return x1 + x2;
-    }
-    </script>
+    
   </body>
 </html>

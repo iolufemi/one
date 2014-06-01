@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,8 +21,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-
+.config(function($stateProvider, $urlRouterProvider/*,$httpProvider*/) {
+/*$httpProvider.defaults.useXDomain = true;
+        $httpProvider.defaults.headers.common = 'Content-Type: application/json';
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];*/
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -80,9 +82,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl: 'templates/signin.html',
         controller: 'signinCtrl'
     })
+  .state('emailsignup',{
+        url: '/emailsignup',
+        templateUrl: 'templates/emailsignup.html',
+        controller: 'emailsignupCtrl'
+    })
+  .state('apply',{
+        url: '/apply',
+        templateUrl: 'templates/apply.html',
+        controller: 'applyCtrl'
+    })
+  .state('thankyou',{
+        url: '/thankyou',
+        templateUrl: 'templates/thankyou.html',
+        controller: 'thankyouCtrl'
+    })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/learn');
+  $urlRouterProvider.otherwise('/tab/start');
 
 });
 

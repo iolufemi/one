@@ -1,26 +1,39 @@
 angular.module('starter.services', [])
-
-/**
- * A simple example service that returns some data.
- */
-.factory('Friends', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var friends = [
-    { id: 0, name: 'Scruff McGruff' },
-    { id: 1, name: 'G.I. Joe' },
-    { id: 2, name: 'Miss Frizzle' },
-    { id: 3, name: 'Ash Ketchum' }
-  ];
-
-  return {
-    all: function() {
-      return friends;
-    },
-    get: function(friendId) {
-      // Simple index lookup
-      return friends[friendId];
+.factory('Sendmail',function($http){
+    return {
+        send: function(emailJson){
+            $http.post('http://apisandbox.one-cred.com/mobileapi/sendmail.json',JSON.stringify(emailJson)).then(function(response){
+        return response.data;
+      });
+      //console.log(emailJson);
+        }
     }
-  }
+})
+.factory('Senduser',function($http,$rootScope){
+    return {
+        send: function(userJson){
+            $http.post('http://apisandbox.one-cred.com/mobileapi/senduser.json',JSON.stringify(userJson)).then(function(response){
+        $rootScope.$emit('senduser');
+        return response.data;
+      });
+      //console.log(userJson);
+        }
+    }
+    
+})
+.factory('Databuffer',function(){
+    var data = {};
+    return {
+        save: function($data){
+            data = $data;
+      },
+      get: function(){
+            return data;
+      },
+      reset: function(){
+            var data = {};
+      }
+      //console.log(userJson);
+        }
+    
 });

@@ -1,0 +1,46 @@
+<ion-view title="Apply">
+<!--<ion-nav-buttons side="right">
+      <button class="button button-dark" ui-sref="signin" ng-hide="isAuth">
+        Sign In <i class="icon ion-chevron-right"></i>
+      </button>
+    </ion-nav-buttons>-->
+  <ion-content class="has-header padding">
+  <p style="text-align: center; padding: 10px;"><img src="../img/logo2.png" /></p>
+    <div class="list calculator">
+  
+  <label class="item item-input ">
+    <input type="text" ng-model="fname" required="yes" placeholder="First Name" />
+  </label>
+  <label class="item item-input ">
+    <input type="text" ng-model="mname" required="yes" placeholder="Middle Name" />
+  </label>
+  <label class="item item-input ">
+    <input type="text" ng-model="lname" required="yes" placeholder="Last Name" />
+  </label>
+  <!--<label class="item item-input ">
+    <input type="date" ng-model="dob" required="yes" placeholder="Date of Birth" />
+  </label>-->
+  <label class="item item-input  item-select">
+  <div class="input-label">
+      Gender
+    </div>
+    <select ng-model="defaultgender" ng-options="gender for gender in genderlist"></select>
+  </label>
+  <label class="item item-input ">
+    <input type="email" ng-model="email" required="yes" placeholder="Email" />
+  </label>
+  <label class="item item-input ">
+    <input type="tel" ng-model="phone" required="yes" placeholder="Phone Number" />
+  </label>
+  <label class="item item-input ">
+    <input type="tel" ng-model="aphone" required="yes" placeholder="Alternative Phone Number" />
+  </label>
+  <label class="item item-input ">
+  <textarea placeholder="Address" ng-model="address" required="yes"></textarea>
+  </label>
+  
+    <button type="submit" ng-click="submit()" class="button button-block button-positive" >Apply</button>
+</div>
+    
+  </ion-content>
+</ion-view>
